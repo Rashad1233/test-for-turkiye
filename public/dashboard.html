@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP System - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>ERP System</h1>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active"><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> <span data-i18n="dashboard">Dashboard</span></a></li>
+                <li><a href="products.html"><i class="fas fa-box"></i> <span data-i18n="products">Products</span></a></li>
+                <li><a href="suppliers.html"><i class="fas fa-truck"></i> <span data-i18n="suppliers">Suppliers</span></a></li>
+                <li><a href="inventory.html"><i class="fas fa-warehouse"></i> <span data-i18n="inventory">Inventory</span></a></li>
+                <li><a href="sales.html"><i class="fas fa-shopping-cart"></i> <span data-i18n="sales">Sales</span></a></li>
+                <li><a href="clients.html"><i class="fas fa-users"></i> <span data-i18n="clients">Clients</span></a></li>
+                <li><a href="purchase-orders.html"><i class="fas fa-file-invoice"></i> <span data-i18n="purchaseOrders">Purchase Orders</span></a></li>
+                <li><a href="reports.html"><i class="fas fa-chart-bar"></i> <span data-i18n="reports">Reports</span></a></li>
+                <li class="sidebar-logout"><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> <span data-i18n="logout">Logout</span></a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="language-selector">
+                    <!-- Language selector will be inserted here by JS -->
+                </div>
+                <div class="user-info">
+                    <span id="username">Admin</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+
+            <div class="content-container">
+                <div class="page-header">
+                    <h1 data-i18n="dashboard">Dashboard</h1>
+                </div>
+
+                <div class="dashboard-cards">
+                    <div class="card card-blue">
+                        <div class="card-body">
+                            <h3 data-i18n="totalProducts">Total Products</h3>
+                            <div class="card-value" id="totalProducts">Loading...</div>
+                        </div>
+                    </div>
+                    <div class="card card-orange">
+                        <div class="card-body">
+                            <h3 data-i18n="lowStockItems">Low Stock Items</h3>
+                            <div class="card-value" id="lowStockItems">Loading...</div>
+                        </div>
+                    </div>
+                    <div class="card card-green">
+                        <div class="card-body">
+                            <h3 data-i18n="activeSuppliers">Active Suppliers</h3>
+                            <div class="card-value" id="activeSuppliers">Loading...</div>
+                        </div>
+                    </div>
+                    <div class="card card-blue-light">
+                        <div class="card-body">
+                            <h3 data-i18n="recentSales">Recent Sales</h3>
+                            <div class="card-value" id="recentSales">Loading...</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="content-wrapper">
+                    <div class="dashboard-tables">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h3 data-i18n="lowStockAlerts">Low Stock Alerts</h3>
+                                <a href="inventory.html" class="btn primary-btn"><span data-i18n="viewAll">View All</span></a>
+                            </div>
+                            <div class="widget-content">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th data-i18n="productName">Product</th>
+                                            <th data-i18n="currentStock" class="mobile-hide">Current Stock</th>
+                                            <th data-i18n="minStock" class="mobile-hide">Min Level</th>
+                                            <th data-i18n="supplier">Suggested Supplier</th>
+                                            <th data-i18n="price" class="mobile-hide">Best Price</th>
+                                            <th data-i18n="actions" class="col-actions">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="lowStockTable">
+                                        <!-- Low stock items will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                
+                        <div class="widget">
+                            <div class="widget-header">
+                                <h3 data-i18n="recentSales">Recent Sales</h3>
+                                <a href="sales.html" class="btn primary-btn"><span data-i18n="viewAll">View All</span></a>
+                            </div>
+                            <div class="widget-content">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th data-i18n="saleId" class="col-id">ID</th>
+                                            <th data-i18n="client">Client</th>
+                                            <th data-i18n="date" class="mobile-hide">Date</th>
+                                            <th data-i18n="amount">Amount</th>
+                                            <th data-i18n="status" class="col-status">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recentSalesTable">
+                                        <!-- Recent sales will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/common.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
